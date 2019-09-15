@@ -1,36 +1,37 @@
 package assignment2.demo.api;
 
 
-import assignment2.demo.api.repository.WordList;
+import assignment2.demo.api.repository.Level;
+import assignment2.demo.api.repository.Game;
 
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
-public class WordMapper implements Mapper<WordList> {
+public class WordMapper implements Mapper<Game> {
     @Override
-    public WordList map(Record r) {
-         Map<Object,String> map = new HashMap<>();
+    public Game map(Record r) {
+         Set<Level> set =new HashSet<>();
          int i=0;
          while (r.get(i)!=null){
              if(r.get(i).length()==4){
-                 map.put(1,r.get(i));
+                 set.add(new Level(1,r.get(i)));
              }else if(r.get(i).length()==5){
-                 map.put(2,r.get(i));
+                 set.add(new Level(2,r.get(i)));
              }else if(r.get(i).length()==6){
-                 map.put(3,r.get(i));
+                 set.add(new Level(3,r.get(i)));
              }else if(r.get(i).length()==7){
-                 map.put(4,r.get(i));
+                 set.add(new Level(4,r.get(i)));
              }else if(r.get(i).length()==8){
-                 map.put(5,r.get(i));
+                 set.add(new Level(5,r.get(i)));
              }
              i++;
          }
 
 
-        return new WordList(map);
+        return new Game(set);
     }
 
 }
