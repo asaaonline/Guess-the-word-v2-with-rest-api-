@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ImportCommand<T> implements Command<T> {
+public class ImportCommand<T> implements SaveCommand<T> {
 
 
     private Validator validator;

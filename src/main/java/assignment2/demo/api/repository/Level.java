@@ -1,8 +1,6 @@
 package assignment2.demo.api.repository;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Level {
@@ -11,6 +9,19 @@ public class Level {
     private int id;
     private int level;
     private String word;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "game_id")
+    private Game game;
+
+    public Level() {
+    }
+
+    public Level(int level, String word, Game game) {
+        this.level = level;
+        this.word = word;
+        this.game = game;
+    }
 
     public Level(int level, String word) {
         this.level = level;
@@ -39,5 +50,13 @@ public class Level {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 }

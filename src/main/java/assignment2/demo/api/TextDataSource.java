@@ -19,8 +19,6 @@ public class TextDataSource implements DataSource {
 
         sc = new Scanner(inputStream);
 
-
-
     }
 
     @Override
