@@ -4,9 +4,7 @@ import assignment2.demo.api.repository.Game;
 import assignment2.demo.api.repository.Level;
 import org.springframework.stereotype.Component;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+
 
 @Component
 public class BasicAlgoritham implements Algoritham {
